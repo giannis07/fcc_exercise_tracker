@@ -58,11 +58,11 @@ app.post("/api/users/:_id/exercises", async (req, res) => {
   const { _id } = req.params;
   const { description, duration, date } = req.body;
 
-  // Βρες τον χρήστη με το δεδομένο _id
+  // find user with _id
   const user = await userModel.findById(_id);
   if (!user) return res.status(404).json({ error: "User not found" });
 
-  // Δημιουργία του αντικειμένου άσκησης
+  // create exercise obj
   let exercise = new exerciseModel({
     user_id: _id,
     description,
@@ -77,7 +77,7 @@ app.post("/api/users/:_id/exercises", async (req, res) => {
     username: user.username,
     description: exercise.description,
     duration: exercise.duration,
-    date: exercise.date.toDateString() // Κάνε format την ημερομηνία
+    date: exercise.date.toDateString() 
   });
 });
 
@@ -88,7 +88,7 @@ app.get('/api/users/:_id/logs', async (req, res) => {
   const user = await userModel.findById(_id);
   if (!user) return res.status(404).json({ error: "User not found" });
 
-  // Φτιάξε το φίλτρο για την ημερομηνία
+  // filter date
   let filter = { user_id: _id };
 
   if (from || to) {
@@ -97,10 +97,10 @@ app.get('/api/users/:_id/logs', async (req, res) => {
     if (to) filter.date.$lte = new Date(to);
   }
 
-  // Εκτέλεσε την αναζήτηση με το limit
+  // find with limit if exists
   let exercises = await exerciseModel.find(filter).limit(parseInt(limit) || 0);
 
-  // Φτιάξε το log array
+  // log array
   let log = exercises.map(ex => ({
     description: ex.description,
     duration: ex.duration,
