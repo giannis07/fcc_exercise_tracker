@@ -85,6 +85,7 @@ Retrieve the exercise log for a user:
 
 1. **Clone the repository**:
    git clone https://github.com/giannis07/fcc_exercise_tracker.git
+   
    cd fcc_exercise_tracker
 
 3. **Install dependencies**:
