@@ -87,10 +87,10 @@ Retrieve the exercise log for a user:
    git clone https://github.com/giannis07/fcc_exercise_tracker.git
    cd fcc_exercise_tracker
 
-2. **Install dependencies**:
+3. **Install dependencies**:
    npm install
 
-3. **Set up environment variables**:
+4. **Set up environment variables**:
    Create a `.env` file in the root directory of the project with the following contents:
    MONGO_URI=your-mongodb-uri-here
    
