@@ -4,18 +4,18 @@ This project is part of the [freeCodeCamp Back End Development and APIs Certific
 
 ## 📌 Overview
 
-The Exercise Tracker allows users to log their exercise activities and track the duration of each exercise. It stores the exercise details in a database and provides an API to access them.
+The Exercise Tracker is a backend application that allows users to track their exercise routines. It is built using **Node.js**, **Express.js**, and **MongoDB**. Users can create accounts, log exercises with descriptions and durations, and retrieve their exercise history. The application is designed to store user and exercise data in a MongoDB database and provide a RESTful API to interact with the data.
 
 ## 🔍 Features
 
-- Allows users to add exercises with a description, duration, and optional date.
-- Tracks multiple exercises over time.
-- Retrieves the list of exercises for a user within a specific date range.
+- Create a new user by providing a username.
+- Log an exercise for a user, including the exercise description, duration, and optional date.
+- Retrieve a user’s exercise log with optional date filtering and limit.
+- Store and retrieve exercise data using MongoDB.
 
 ## 📡 API Endpoints
 
-### `POST /api/exercise/new-user`
-
+### `POST /api/users`
 Create a new user:
 
 **Request body:**
@@ -29,13 +29,11 @@ Create a new user:
   "_id": "someUserId"
 }
 
-### `POST /api/exercise/add`
-
-Log an exercise for an existing user:
+### `POST /api/users/:_id/exercises`
+Log an exercise for a user:
 
 **Request body:**
 {
-  "userId": "someUserId",
   "description": "Running",
   "duration": 30,
   "date": "2025-05-01"
@@ -50,12 +48,10 @@ Log an exercise for an existing user:
   "_id": "someExerciseId"
 }
 
-### `GET /api/exercise/log`
-
+### `GET /api/users/:_id/logs`
 Retrieve the exercise log for a user:
 
 **Query parameters:**
-- `userId`: The ID of the user.
 - `from`: The start date (optional).
 - `to`: The end date (optional).
 - `limit`: The number of exercises to return (optional).
@@ -80,30 +76,30 @@ Retrieve the exercise log for a user:
 
 ## ⚙️ Technologies Used
 
-- Node.js
-- Express.js
+- **Node.js**: JavaScript runtime for the server.
+- **Express.js**: Web framework for Node.js.
+- **MongoDB**: NoSQL database for storing user and exercise data.
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js.
+
+## 🛠️ Getting Started Locally
+
+1. **Clone the repository**:
+   git clone https://github.com/giannis07/fcc_exercise_tracker.git
+   cd fcc_exercise_tracker
+
+2. **Install dependencies**:
+   npm install
+
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory of the project with the following contents:
+   MONGO_URI=your-mongodb-uri-here
+   
+5. **Start the server**:
+   npm start
+
+6. The server should now be running locally. You can test the API using a tool like [Postman](https://www.postman.com/) or curl.
 
 
 ## 💻 Source Code
 
 🔗 [GitHub Repository](https://github.com/giannis07/fcc_exercise_tracker)
-
-## 🛠️ Getting Started Locally
-
-1. Clone the repository:
- ```bash
-git clone https://github.com/giannis07/fcc_exercise_tracker.git
-cd fcc_exercise_tracker
-```
-
-2. Install dependencies:
- ```bash
-npm install
-```
-
-3. Start the server:
- ```bash
-npm start
-```
-
-4. Use a tool like Postman or your browser to test the API.
