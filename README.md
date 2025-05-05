@@ -1,6 +1,6 @@
 # 🏋️‍♂️ Exercise Tracker Microservice
 
-This project is part of the [freeCodeCamp Back End Development and APIs Certification](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker).
+My solution for the [Exercise Tracker Microservice project on freeCodeCamp](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/exercise-tracker).
 
 ## 📌 Overview
 
